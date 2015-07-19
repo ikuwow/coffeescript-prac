@@ -167,3 +167,61 @@ hello()
 
 do -> console.log "console"
 
+
+# ** separate assignment ** #
+[a, b, c] = [1, 5, 9]
+
+[b, a] = [a, b] # swap
+
+multiplier = (x) -> [x, x**2]
+
+[m, n] = multiplier(3)
+console.log m, n
+
+user =
+    name: "ikuwow"
+    age: 17
+    email: "degawa@ikuwow.com"
+
+{name, email} = user
+console.log name, email
+
+# ** Class ** #
+
+class User
+    # constructor: (name) ->
+        # this.name = name
+        # @name = name
+    constructor: (@name) ->
+    hello: -> console.log "Hello, #{@name}"
+
+
+ikuwow = new User("ikuwow")
+console.log ikuwow.name
+ikuwow.hello()
+
+class AdminUser extends User
+    hello: ->
+        console.log "Hey #{@name}"
+        super()
+
+degawa = new AdminUser('degawa')
+degawa.hello
+
+
+# existance checker
+
+# 0, '' -> false
+# null / undefined
+
+rs = if aaa? then "Found!" else "Not found..." # null, undefined
+console.log rs
+
+console.log y ? 20 # if y doesnt exist then return 20
+
+itsme =
+    name: "ikuwow"
+
+# console.log itsme.score.first # type error
+console.log itsme.score?.first # type error
+
