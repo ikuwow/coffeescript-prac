@@ -101,3 +101,69 @@ console.log "ok" if 10 < x < 20
 console.log "OK" if 5 in [1,3,5]
 
 console.log "key exists" if "name" of m
+
+
+# ** Switch statement ** #
+
+signal = 'yellow'
+console.log "signal is #{signal}"
+
+switch signal
+    when "red"
+        console.log "STOP!"
+    when "green", "bule"
+        console.log "GO!"
+    when "yellow" then console.log "CAUTION!"
+    else console.log("What?")
+    # すげえrubyっぽい
+
+
+# ** loop statement ** #
+sum = 0
+for i in [0..10]
+    sum += i
+console.log(sum)
+
+sum2 = 0
+sum += i for i in [0..10] by 2
+console.log(sum2)
+
+sum3 = 0
+total = (sum3 += i for i in [0..9])
+console.log(total)
+
+itr = 0
+sum4 = 0
+total = while itr < 10
+    sum4 += i
+    itr++
+
+console.log total
+
+
+# ** array  ** #
+
+console.log color for color in ["red", "blue", "green"] when color isnt "blue"
+
+console.log "#{index}: #{color}" for color, index in ["red", "blue", "green"] when color isnt "blue"
+
+
+results =
+    degawa: 38
+    ikuo: 39
+    ajinomoto: 88
+
+for name, score of results # not in
+    console.log "#{name}: #{score}"
+
+
+# ** functions ** #
+# hello = -> console.log "Hello!"
+hello = (name = "ikuwow") ->
+    console.log "Hello, #{name}!"
+    # 最後に評価された値がそのまま返り値になる
+
+hello()
+
+do -> console.log "console"
+
