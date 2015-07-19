@@ -22,3 +22,13 @@ $ npm install -g coffee-script
 $ coffee -c script.coffee
 ```
 
+
+## Live Preview on Vim
+
+Add to .vimrc:
+
+```
+NeoBundle 'kchmck/vim-coffee-script'
+```
+
+and type on vim: `:CoffeeWatch vert`
